@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<link type="text/css" href="{% static 'stomato_main/style.css' %}" rel="stylesheet" />
+<ul class="topmenu">
+    {% for m in top_menu %}
+        {% if not forloop.last %}
+            <li>
+        {% else %}
+            <li class="last_menu_element">
+        {% endif %}    
+        <a href="{% url m.url %}">{{ m.title }}</a></li>
+    {% endfor %}
+</ul>
+{% block main_stomato %}
+
+{% endblock %}
+
+
+</body>
+</html>
+
