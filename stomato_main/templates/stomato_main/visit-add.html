@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block main_stomato %}
+
+<h1> {{ title }} </h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {% for f in form %}
+        <li><label class="form" for="{{ f.id_for_label }}"> {{ f.label }}</label> {{ f }}</li>
+    {% endfor %}
+    {{ form.non_field_errors }}
+    {{ f.errors }}
+    <button type="submit">Добавить</button>
+
+</form>
+
+{% endblock %}

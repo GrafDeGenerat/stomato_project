@@ -2,10 +2,16 @@
 
 {% block main_stomato %}
 
-    <h1> {{ title }} </h1>
-    <ul class="lists">
-    {% for d in doctors %}
-        <li><a href="{% url d.slug %}">{{ d.fullname }}</a> </li>
-    {% endfor %}
-    </ul>
+<h1> {{ title }} </h1>
+
+<form action="doctor-add/" method="get">
+<button>Новый врач</button>
+</form>
+
+<ul class="lists">
+{% for d in object_list %}
+    <li><p><a href="{{ d.get_absolute_url }}">{{ d }}</a></p></li>
+{% endfor %}
+</ul>
+
 {% endblock %}

@@ -1,0 +1,11 @@
+    <table>
+    <tr><th>Клиент</th><th>Врач</th><th>Дата записи</th><th>Время записи</th></tr>
+    {% for cv in object_list %}
+       <tr>
+           <td><a href="{% url 'client' cv.client.slug %}">{{ cv.client.fullname }}</a></td>
+           <td><a href="{% url 'doctor' cv.doctor.slug %}">{{ cv.doctor.fullname }}</a></td>
+           <td>{{ cv.record_at_date }}</td>
+           <td>{{ cv.record_at_time }}</td>
+       </tr>
+    {% endfor %}
+    </table>
